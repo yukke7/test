@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" th:href="@{/css/NewFile.css}"></link>
+<title>ユーザー情報一覧</title>
+<meta charset="utf-8" />
+</head>
+<body>
+    <h1>ユーザー情報登録</h1>
+
+	<form method = "post" action = "/user/insert_do" th:object="${formModel}">
+		<td>ID</td>
+		<input type="text" name="id" th:value="*{id}" />
+		<td>部署</td>
+		<input type="text" name="busyo" th:value="*{busyo}"/>
+		<td>名前</td>
+		<input type="text" name="person_name" th:value="*{person_name}">
+		<td>年齢</td>
+		<input type="text" name="age" th:value="*{age}"/>
+		<td>電話番号</td>
+		<input type="text" name="telno" th:value="*{telno}"/>
+		<input 
+			type="hidden"
+			th:name="${_csrf.parameterName}"
+			th:value="${_csrf.token}"
+		/>
+		<input type="submit" value="確定"/>
+	</form>
+</body>
+</html>

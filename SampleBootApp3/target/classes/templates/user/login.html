@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<link>
+<link rel="stylesheet" th:href="@{/css/NewFile2.css}"></link>
+<title>ログインページ</title>
+<meta charset="utf-8" />
+</head>
+<body>
+	<div class="container">
+		<form th:action="@{/login}" method="post">
+		    <p th:if="${session[SPRING_SECURITY_LAST_EXCEPTION]}!=NULL"
+		    	th:text="${session[SPRING_SECURITY_LAST_EXCEPTION].message}"
+		    		class="text-danger">
+		    		ログインエラーメッセージ
+		    </p>
+			<p class="fsize">ログイン画面</p>
+			<input type="text" placeholder="Username" id="name" name="name"/>
+			<input type="password" placeholder="Password" id="password" name="password"/>
+			<button type="submit">ログイン</button>
+		</form>
+	</div>
+</body>
+</html>
